@@ -15,7 +15,7 @@
         <!--================== 共通ヘッダー開始 ==================-->
         <header class="main-header">
             <div class="logo">
-                <button class="btm-logo" type="button" onclick="location.href='./2_list.html'">
+                <button class="btm-logo" type="button" onclick="location.href='./2_list.php'">
                     <p><span>C</span>ustomer</p>
                     <p><span>M</span>anagement</p>
                     <p><span>S</span>ystem</p>
@@ -23,9 +23,9 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="./1_top.html">Top</a></li>
-                    <li><a href="./2_list.html">List</a></li>
-                    <li><a href="./3_register.html">Register</a></li>
+                    <li><a href="./1_top.php">Top</a></li>
+                    <li><a href="./2_list.php">List</a></li>
+                    <li><a href="./3_register.php">Register</a></li>
                 </ul>
             </nav>
         </header>
@@ -39,7 +39,7 @@
                 </div>
                 <div class="content-register-box1">
                     
-					<form action="./2_list.html" onsubmit="return regSubForm()">
+					<form action="./2_list.php" onsubmit="return regSubForm()">
 
                         <div class="search-form__label">
                             <p>お名前</p>
@@ -110,7 +110,7 @@
 						<div id="company_error_Id" class="error-box"></div>	<!-- error -->
 
 
-                        <button class="btm-cancel" type="button" onclick="location.href='./2_list.html'">
+                        <button class="btm-cancel" type="button" onclick="location.href='./2_list.php'">
                             <p>キャンセル</p>
                         </button>
 

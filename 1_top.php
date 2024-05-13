@@ -13,7 +13,7 @@
         <!--================== 共通ヘッダー開始 ==================-->
         <header class="main-header">
             <div class="logo">
-                <button class="btm-logo" onclick="location.href='./2_list.html'">
+                <button class="btm-logo" onclick="location.href='./2_list.php'">
                     <p><span>C</span>ustomer</p>
                     <p><span>M</span>anagement</p>
                     <p><span>S</span>ystem</p>
@@ -21,9 +21,9 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="./1_top.html">Top</a></li>
-                    <li><a href="./2_list.html">List</a></li>
-                    <li><a href="./3_register.html">Register</a></li>
+                    <li><a href="./1_top.php">Top</a></li>
+                    <li><a href="./2_list.php">List</a></li>
+                    <li><a href="./3_register.php">Register</a></li>
                 </ul>
             </nav>
         </header>
@@ -36,7 +36,7 @@
                     <h1>トップページ</h1>
                 </div>
                 <div class="top-content-box">
-                    <button class="btm-home" type="button" onclick="location.href='./2_list.html'">
+                    <button class="btm-home" type="button" onclick="location.href='./2_list.php'">
                         <p>HOME ⇒</p>
                     </button>
                 </div>

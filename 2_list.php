@@ -15,7 +15,7 @@
 		<!--================== 共通ヘッダー開始 ==================-->
 		<header class="main-header">
 			<div class="logo">
-				<button class="btm-logo" type="button" onclick="location.href='./2_list.html'">
+				<button class="btm-logo" type="button" onclick="location.href='./2_list.php'">
 					<p><span>C</span>ustomer</p>
 					<p><span>M</span>anagement</p>
 					<p><span>S</span>ystem</p>
@@ -23,9 +23,9 @@
 			</div>
 			<nav>
 				<ul>
-					<li><a href="./1_top.html">Top</a></li>
-					<li><a href="./2_list.html">List</a></li>
-					<li><a href="./3_register.html">Register</a></li>
+					<li><a href="./1_top.php">Top</a></li>
+					<li><a href="./2_list.php">List</a></li>
+					<li><a href="./3_register.php">Register</a></li>
 				</ul>
 			</nav>
 		</header>
@@ -41,13 +41,13 @@
 				<div class="content-box1">
 					<div class="box1-child1">
 						<!-- 登録ボタン -->
-						<button class="btm-register" onclick="location.href='./3_register.html'">
+						<button class="btm-register" onclick="location.href='./3_register.php'">
 							<p>新規登録</p>
 						</button>
 					</div>
 					<div class="box1-child2">
 						<!-- 検索欄 -->
-						<form action="./2_list.html" onsubmit="return listSubForm()">
+						<form action="./2_list.php" onsubmit="return listSubForm()">
 
 							<div class="search-form__label">
 								<p>顧客名</p>
