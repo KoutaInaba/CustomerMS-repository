@@ -2,7 +2,7 @@
 
 require_once dirname(__FILE__) . '/Model.php';
 
-class BoardModel extends Model
+class CustomerModel extends Model
 {
 
 	// ---------- プロパティ ----------
@@ -19,10 +19,14 @@ class BoardModel extends Model
 
 
 	// ---------- メソッド ----------
-	//
+
+	// ----- 新規登録メソッド -----
 	public function insert($data)
 	{
-		$sql = "INSERT INTO {$this->table} ({$this->primary}, `detail`, `insert_at`) VALUES (NULL , '" . $data['detail'] . "', '" . date('Y-m-d H:i:s') . "');";	// 新規登録用のSQL文
+		// 新規登録用のSQL文
+		$sql = "INSERT INTO {$this->table} (
+			{$this->primary}, `name`, `kana`, `email`, `tel`, `gender`, `birth`, `company_id`, `create_at`, `update_at`) 
+			VALUES (NUll, '" . $data['name'] . "', '" . $data['kana'] . "', '" . $data['email'] . "', '" . $data['tel'] . "', '" . date('Y-m-d') . "', '" . $data['company_id'] . "', '" . date('Y-m-d H:i:s') . "', '" . date('Y-m-d H:i:s') . "');";
 
 		$result = $this->dbCon->query($sql);
 		$this->dbCon->close();
@@ -31,7 +35,7 @@ class BoardModel extends Model
 	}
 
 
-	//
+	// ----- 更新メソッド -----
 	public function update($data)
 	{
 		$sql = "UPDATE {$this->table} SET `detail` = '" . $data['detail'] . "' WHERE {$this->primary} = " . $data[$this->inputName] . ";";		// 更新用のSQL文

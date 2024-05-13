@@ -11,6 +11,18 @@
 </head>
 
 <body>
+	<!---------- データベース接続 ---------->
+	<?php
+
+	// require_once dirname(__FILE__) . '/model/BoardModel.php';
+	// $bm = new CustomerModel();
+	// $result = $bm->search();
+
+	?>
+
+
+
+
 	<div class="main-wrapper">
 		<!--================== 共通ヘッダー開始 ==================-->
 		<header class="main-header">
@@ -139,54 +151,19 @@
 									<dialog id="dialog-delete">
 										<h2>削除確認</h2>
 										<p>データを削除してもよろしいでしょうか？</p>
-										<button type="button"
-											onclick="document.getElementById('dialog-delete').close();">
+										<button type="button" onclick="document.getElementById('dialog-delete').close();">
 											いいえ
 										</button>
-										<button type="button"
-											onclick="document.getElementById('dialog-delete').close();">
+										<button type="button" onclick="document.getElementById('dialog-delete').close();">
 											はい
 										</button>
 									</dialog>
-									<button class="btm-delete" type="button"
-										onclick="document.getElementById('dialog-delete').show();">
+									<button class="btm-delete" type="button" onclick="document.getElementById('dialog-delete').show();">
 										<p>削除</p>
 									</button>
 								</td>
 							</tr>
-							<tr>
-								<td>00000002</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>00000003</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>00000004</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
+							
 						</table>
 					</div>
 				</div>
