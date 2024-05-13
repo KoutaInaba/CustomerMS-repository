@@ -1,0 +1,527 @@
+/* ==================== body全体 開始 ==================== */
+.main-wrapper {
+	width: 100%;
+}
+
+/* ==================== body全体 終了 ==================== */
+
+
+
+/* ==================== 共通ヘッダー 開始 ==================== */
+/*---------- 共通ヘッダー全体 ----------*/
+.main-header {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+
+	width: 100%;
+	height: 150px;
+	background: #ffffff;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	position: absolute;
+}
+
+
+/*---------- ロゴ ----------*/
+.logo {
+	width: auto;
+	height: 100%;
+
+}
+
+
+/* ロゴボタン */
+.logo .btm-logo {
+	width: 100%;
+	height: 100%;
+
+	color: #333;
+	font-size: 23px;
+	font-style: italic;
+	font-weight: 600;
+	margin-left: 30px;
+
+	border: none;
+	background: #ffffff;
+}
+
+.logo .btm-logo p {
+	text-align: left;
+	display: inline;
+	/* ← 横並び */
+}
+
+.logo .btm-logo p span {
+	color: #0ca62f;
+	font-size: 35px;
+}
+
+
+/*---------- メニュー ----------*/
+.main-header nav ul {
+	display: flex;
+}
+
+.main-header ul li {
+	font-size: 20px;
+	margin-right: 50px;
+}
+
+.main-header ul li a {
+	color: #333;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.main-header ul li a:hover {
+	text-decoration: underline;
+}
+
+/* ==================== 共通ヘッダー 終了 ==================== */
+
+
+
+/* ==================== トップ｜コンテンツ 開始 ==================== */
+.main-content {
+	width: 100%;
+	height: 1080px;
+	padding-top: 150px;
+	background: beige;
+	display: flex;
+}
+
+.main-content .content-top {
+	width: 100%;
+}
+
+
+/*---------- ヘッダー ----------*/
+.content-header {
+	background: #85b1c5;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.content-header h1 {
+	color: #333;
+	font-size: 30px;
+	font-weight: 600;
+	font-style: italic;
+	margin-left: 50px;
+}
+
+
+/*---------- ホームボタン ----------*/
+.content-top .top-content-box {
+	width: 40%;
+	height: 40%;
+	display: flex;
+}
+
+.content-top .top-content-box .btm-home {
+	background: #625add;
+	border: unset;
+	border-radius: 50%;
+	width: 300px;
+	height: 300px;
+	display: block;
+	margin: auto;
+}
+
+.content-top .top-content-box .btm-home p {
+	color: #ffffff;
+	font-size: 50px;
+	font-style: italic;
+	font-weight: 600;
+}
+
+/* ==================== トップ｜コンテンツ 終了 ==================== */
+
+
+
+/* ==================== 一覧｜コンテンツ 開始 ==================== */
+.content-list {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+
+/* 上下に分割 */
+.content-list .content-box1 {
+	width: 100%;
+	margin-bottom: 100px;
+	display: flex;
+	justify-content: center;
+}
+
+.content-list .content-box2 {
+	display: flex;
+	width: 100%;
+}
+
+
+/* content-box1を横に分割 */
+.content-list .content-box1 .box1-child1 {
+	width: 50%;
+	margin-left: 50px;
+	display: flex;
+}
+
+.content-list .content-box1 .box1-child2 {
+	width: 50%;
+	margin-top: 50px;
+	margin-right: 50px;
+	display: flex;
+}
+
+
+/*---------- 登録ボタン ----------*/
+.box1-child1 .btm-register {
+	background: #f18b50;
+	border: unset;
+	border-radius: 20px;
+	width: 60%;
+	max-width: 400px;
+	height: 40%;
+	margin-top: 100px;
+	margin-left: 20%;
+	display: block;
+	margin: auto;
+}
+
+.box1-child1 .btm-register p {
+	color: #ffffff;
+	font-size: 40px;
+}
+
+
+/*---------- 検索欄 ----------*/
+.box1-child2 form {
+	width: 100%;
+	max-width: 700px;
+	display: block;
+	margin: auto;
+}
+
+.search-form__label,
+.search-form__radio {
+	display: flex;
+	margin-top: 10px;
+}
+
+.search-form__label p,
+.search-form__radio p {
+	width: 150px;
+	background: #2e7c9f;
+	font-size: 14px;
+	color: #ffffff;
+	height: 45px;
+	line-height: 45px;
+	margin-right: 4px;
+	text-align: center;
+	border-radius: 10px;
+}
+
+.search-form__label input,
+.search-form__label select {
+	width: 400px;
+	border: none;
+	outline: none;
+	background-color: #ffffff;
+	outline: 1px solid #2e7c9f;
+	font-size: 14px;
+	padding: 10px;
+	border-radius: 10px;
+}
+
+.search-form__label .date-box {
+	display: flex;
+}
+
+.search-form__label .date-box input {
+	width: 165px;
+}
+
+.search-form__label .date-box p {
+	width: 30px;
+	height: 15px;
+	border: none;
+	outline: none;
+	background: beige;
+	margin-top: 15px;
+	margin-left: 10px;
+	margin-right: 10px;
+
+	color: #2e7c9f;
+	font-size: 50px;
+}
+
+
+/* ラジオボタン */
+/* Webからコピーしたから変更しにくい */
+.search-form__radio input {
+	/* border: none; */
+	outline: none;
+	background-color: #ffffff;
+
+	font-size: 14px;
+}
+
+.radio__btn {
+	appearance: none;
+}
+
+.radio__text {
+	padding-left: 30px;
+	position: relative;
+	cursor: pointer;
+}
+
+.radio__text::before {
+	content: '';
+	display: block;
+	border-radius: 50%;
+	outline: 1px solid #2e7c9f;
+	background-color: #ffffff;
+	width: 25px;
+	height: 25px;
+	position: absolute;
+	top: 30%;
+	left: 0;
+	transform: translateY(50%);
+}
+
+.radio__btn:checked+.radio__text::after {
+	content: '';
+	display: block;
+	border-radius: 50%;
+	width: 13px;
+	height: 13px;
+	background-color: #2e7c9f;
+	position: absolute;
+	top: 165%;
+	left: 6px;
+	transform: translateY(-50%);
+}
+
+.radio span {
+	font-size: 18px;
+	font-weight: 600;
+	/* font-style: italic; */
+	color: #333;
+}
+
+
+/* 入力欄のクリック時 */
+.search-form__label>input:focus,
+.search-form__radio>input:focus {
+	outline: 3px solid orange;
+}
+
+
+/* 検索ボタン */
+.btm-search {
+	background: #2e7c9f;
+	border: unset;
+	border-radius: 10px;
+	width: 40%;
+	height: 50px;
+	margin-top: 20px;
+	margin-left: 35%;
+}
+
+.btm-search p {
+	color: #ffffff;
+	font-size: 20px;
+}
+
+
+/*---------- 一覧表 ----------*/
+.content-list .content-box2 .table-wrap {
+	width: 100%;
+	height: auto;
+	margin-left: 50px;
+	margin-right: 50px;
+	margin-bottom: 100px;
+	overflow-x: scroll;
+	/* 画面サイズが小さいときは横スクロール */
+	border-radius: 5px;
+}
+
+
+/* 表のラップ */
+.table-wrap .table {
+	width: 100%;
+	min-width: 1400px;
+	border-collapse: collapse;
+}
+
+
+/* 表 */
+.table-wrap .table th,
+.table-wrap .table td {
+	border: 1px solid #606b70;
+	padding: 1em;
+}
+
+.table-wrap .table th {
+	background: #2e7c9f;
+	color: #ffffff;
+}
+
+.table-wrap .table td {
+	background: #ffffff;
+}
+
+
+/* 編集・削除ボタン */
+.content-box2 .table td .btm-edit,
+.content-box2 .table td .btm-delete {
+	display: block;
+	margin: auto;
+	color: #ffffff;
+	font-size: 20px;
+	border-radius: 5px;
+	border: unset;
+}
+
+.content-box2 .table td .btm-edit {
+	background: #264b5c;
+	width: 80px;
+	height: 40px;
+}
+
+.content-box2 .table td .btm-delete {
+	background: rgb(245, 47, 47);
+	width: 80px;
+	height: 40px;
+}
+
+/* ==================== 一覧｜コンテンツ 終了 ==================== */
+
+
+
+/* ==================== 登録｜コンテンツ 開始 ==================== */
+.content-register {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.content-register-box1 {
+	width: auto;
+	display: block;
+	margin: 0 auto;
+}
+
+
+/*---------- 登録欄 ----------*/
+/* 検索欄のCSSを再利用 */
+.content-register-box1 .search-form__label,
+.content-register-box1 .search-form__radio {
+	margin-top: 30px;
+}
+
+.content-register-box1 .search-form__label p,
+.content-register-box1 .search-form__radio p {
+	width: 200px;
+	background: #2e7c9f;
+	font-size: 20px;
+	color: #ffffff;
+	height: 50px;
+	line-height: 45px;
+	margin-right: 10px;
+	text-align: center;
+}
+
+.content-register-box1 .search-form__label input,
+.content-register-box1 .search-form__label select {
+	width: 400px;
+	font-size: 20px;
+
+}
+
+.btm-edit {
+	background: #606b70;
+	width: 150px;
+	height: 50px;
+	border-radius: 7px;
+	border: unset;
+	color: #ffffff;
+	font-size: 20px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+/* キャンセル・登録ボタン */
+.content-register-box1 .btm-cancel,
+.content-register-box1 .btm-register {
+	margin-top: 30px;
+	border-radius: 7px;
+	border: unset;
+}
+
+.content-register-box1 .btm-cancel {
+	background: rgb(245, 47, 47);
+	/* border: unset; */
+	width: 200px;
+	height: 50px;
+	margin-left: 200px;
+}
+
+.content-register-box1 .btm-register {
+	background: #2e7c9f;
+	/* border: unset; */
+	width: 200px;
+	height: 50px;
+	margin-left: 20px;
+}
+
+.content-register-box1 .btm-cancel p,
+.content-register-box1 .btm-register p {
+	color: #ffffff;
+	font-size: 20px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+
+.error-box {
+	color: red;
+	margin-top: 5px;
+	margin-left: 200px;
+}
+
+
+/* 追加・編集ボタン */
+/* .content-register-box2 {
+    width: 20%;
+}
+
+.content-register-box2 .btm-edit {
+    background: #606b70;
+    width: auto;
+    height: 50px;
+    margin-top: 350px;
+    border-radius: 7px;
+    border: unset;
+}
+
+.content-register-box2 .btm-edit p {
+    color: #ffffff;
+    font-size: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+} */
+/* ==================== 登録｜コンテンツ 終了 ==================== */
+
+
+
+
+/* ==================== 開始 ==================== */
+/* ==================== 終了 ==================== */
