@@ -23,7 +23,7 @@ abstract class Model
 	// ----- 一覧メソッド -----
 	public function search()
 	{
-		$sql = "SELECT * FROM {$this->table} ORDER BY create_at DESC;";		// 一覧用のSQL文
+		$sql = "SELECT * FROM {$this->table} ORDER BY created_at DESC;";		// 一覧用のSQL文
 
 		$result = $this->dbCon->query($sql);
 		$this->dbCon->close();

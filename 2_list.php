@@ -14,9 +14,9 @@
 	<!---------- データベース接続 ---------->
 	<?php
 
-	// require_once dirname(__FILE__) . '/model/CustomerModel.php';
-	// $bm = new CustomerModel();
-	// $result = $bm->search();
+	require_once dirname(__FILE__) . '/model/CustomerModel.php';
+	$bm = new CustomerModel();
+	$result = $bm->search();
 
 	?>
 
@@ -131,39 +131,55 @@
 								<th>編集ボタン</th>
 								<th>削除ボタン</th>
 							</tr>
-							<tr>
-								<td>00000001</td>
-								<td>
-									<p>味野 ふらい</p>
-									<p>(アジノ フライ)</p>
-								</td>
-								<td>fry_@gmail.com</td>
-								<td>030-3333-3333</td>
-								<td>株式会社Fish-Fry</td>
-								<td>1872/03/03</td>
-								<td>2024/04/11</td>
-								<td>
-									<button class="btm-edit" type="button">
-										<p>編集</p>
-									</button>
-								</td>
-								<td>
-									<dialog id="dialog-delete">
-										<h2>削除確認</h2>
-										<p>データを削除してもよろしいでしょうか？</p>
-										<button type="button" onclick="document.getElementById('dialog-delete').close();">
-											いいえ
-										</button>
-										<button type="button" onclick="document.getElementById('dialog-delete').close();">
-											はい
-										</button>
-									</dialog>
-									<button class="btm-delete" type="button" onclick="document.getElementById('dialog-delete').show();">
-										<p>削除</p>
-									</button>
-								</td>
-							</tr>
-							
+
+
+							<?php
+							if ($result->num_rows === 0) {
+							?>
+							<div>
+								顧客は登録されていません。
+							</div>
+								<?php
+							} else {
+								while ($row = $result->fetch_assoc()) {
+								?>
+
+									<tr>
+										<td><?= $row['id']; ?></td>
+										<td>
+											<p><?= $row['name']; ?></p>
+											<p><?= $row['kana']; ?></p>
+										</td>
+										<td><?= $row['email']; ?></td>
+										<td><?= $row['tel']; ?></td>
+										<td><?= $row['company_id']; ?></td>
+										<td><?= $row['created_at']; ?></td>
+										<td><?= $row['updated_at']; ?></td>
+										<td>
+											<button class="btm-edit" type="button">
+												<p>編集</p>
+											</button>
+										</td>
+										<td>
+											<dialog id="dialog-delete">
+												<h2>削除確認</h2>
+												<p>データを削除してもよろしいでしょうか？</p>
+												<button type="button" onclick="document.getElementById('dialog-delete').close();">
+													いいえ
+												</button>
+												<button type="button" onclick="document.getElementById('dialog-delete').close();">
+													はい
+												</button>
+											</dialog>
+											<button class="btm-delete" type="button" onclick="document.getElementById('dialog-delete').show();">
+												<p>削除</p>
+											</button>
+										</td>
+									</tr>
+							<?php
+								}
+							}
+							?>
 						</table>
 					</div>
 				</div>

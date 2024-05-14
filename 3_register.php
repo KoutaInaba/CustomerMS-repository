@@ -74,15 +74,15 @@
 						<div class="search-form__radio">
 							<p>性別</p>
 							<label class="radio">
-								<input class="radio__btn" type="radio" name="gender" value="男性">
+								<input class="radio__btn" type="radio" name="gender" value="0">
 								<span class="radio__text">男性</span>
 							</label>
 							<label class="radio">
-								<input class="radio__btn" type="radio" name="gender" value="女性" checked>
+								<input class="radio__btn" type="radio" name="gender" value="1" checked>
 								<span class="radio__text">女性</span>
 							</label>
 							<label class="radio">
-								<input class="radio__btn" type="radio" name="gender" value="その他">
+								<input class="radio__btn" type="radio" name="gender" value="2">
 								<span class="radio__text">その他</span>
 							</label>
 						</div>
