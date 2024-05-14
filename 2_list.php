@@ -14,7 +14,7 @@
 	<!---------- データベース接続 ---------->
 	<?php
 
-	// require_once dirname(__FILE__) . '/model/BoardModel.php';
+	// require_once dirname(__FILE__) . '/model/CustomerModel.php';
 	// $bm = new CustomerModel();
 	// $result = $bm->search();
 

@@ -8,7 +8,7 @@ class CustomerModel extends Model
 	// ---------- プロパティ ----------
 	protected $table = 'customers';			//データベースから取得するテーブルの指定
 	protected $primary = 'id';				//テーブルのプライマリーキーの指定
-	protected $inputName = 'customer_ms';	//プライマリーキーを取得しているinputタグのname属性の指定
+	protected $inputName = 'customer_form';	//プライマリーキーを取得しているinputタグのname属性の指定
 
 
 	// ---------- コンストラクタ ----------
@@ -24,9 +24,9 @@ class CustomerModel extends Model
 	public function insert($data)
 	{
 		// 新規登録用のSQL文
-		$sql = "INSERT INTO {$this->table} (
-			{$this->primary}, `name`, `kana`, `email`, `tel`, `gender`, `birth`, `company_id`, `create_at`, `update_at`) 
-			VALUES (NUll, '" . $data['name'] . "', '" . $data['kana'] . "', '" . $data['email'] . "', '" . $data['tel'] . "', '" . date('Y-m-d') . "', '" . $data['company_id'] . "', '" . date('Y-m-d H:i:s') . "', '" . date('Y-m-d H:i:s') . "');";
+		$sql = "INSERT INTO {$this->table} ({$this->primary}, `name`, `kana`, `email`, `tel`, `gender`, `birth`, `company_id`, `created_at`, `updated_at`) 
+			VALUES (NUll, '" . $data['name'] . "', '" . $data['kana'] . "', '" . $data['email'] . "', '" . $data['tel'] . "', '" . $data['gender'] . "', '" . date('Y/m/d') . "', '" . $data['company_id'] . "', '" . date('Y-m-d H:i:s') . "', '" . date('Y-m-d H:i:s') . "'
+			);";
 
 		$result = $this->dbCon->query($sql);
 		$this->dbCon->close();
