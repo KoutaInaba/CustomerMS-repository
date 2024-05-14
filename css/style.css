@@ -381,18 +381,18 @@
 /* 編集・削除ボタン */
 .content-box2 .table td .btm-edit,
 .content-box2 .table td .btm-delete {
-	display: block;
+	display: flex;
 	margin: auto;
 	color: #ffffff;
 	font-size: 20px;
 	border-radius: 5px;
 	border: unset;
+	width: 80px;
+	height: 40px;
 }
 
 .content-box2 .table td .btm-edit {
 	background: #264b5c;
-	width: 80px;
-	height: 40px;
 }
 
 .content-box2 .table td .btm-delete {

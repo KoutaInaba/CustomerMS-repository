@@ -118,26 +118,6 @@
 					<div class="table-wrap">
 						<table class="table">
 
-							<tr>
-								<th>顧客ID</th>
-								<th>
-									<p>顧客名</p>
-									<p>(カナ)</p>
-								</th>
-								<th>
-									<p>メールアドレス</p>
-									<p>電話番号</p>
-								</th>
-								<th>所属会社</th>
-								<th>
-									<p>新規登録日時</p>
-									<p>最終更新日時</p>
-								</th>
-								<th>編集ボタン</th>
-								<th>削除ボタン</th>
-							</tr>
-
-
 							<?php
 							if ($result->num_rows === 0) {
 							?>
@@ -148,7 +128,28 @@
 							} else {
 								while ($row = $result->fetch_assoc()) {
 								?>
+
+									<tr>
+										<th>顧客ID</th>
+										<th>
+											<p>顧客名</p>
+											<p>(カナ)</p>
+										</th>
+										<th>
+											<p>メールアドレス</p>
+											<p>電話番号</p>
+										</th>
+										<th>所属会社</th>
+										<th>
+											<p>新規登録日時</p>
+											<p>最終更新日時</p>
+										</th>
+										<th>編集ボタン</th>
+										<th>削除ボタン</th>
+									</tr>
+
 									<form name="deleteForm" method="post" action="delete.php">
+										<input type="hidden" name="customer_id" value="<?= $row['id']; ?>">
 										<tr>
 											<td><?= $row['id']; ?></td>
 											<td>
@@ -170,22 +171,25 @@
 												</button>
 											</td>
 											<td>
-												<dialog id="dialog-delete">
-													<h2>削除確認</h2>
-													<p>データを削除してもよろしいでしょうか？</p>
-													<button type="button" onclick="document.getElementById('dialog-delete').close();">
-														いいえ
-													</button>
-													<button type="submit" name="action">
-														はい
-													</button>
-												</dialog>
-												<button class="btm-delete" type="button" onclick="document.getElementById('dialog-delete').show();">
+												<button class="btm-delete" type="submit" name="action">
 													<p>削除</p>
 												</button>
+												<!-- <button class="btm-delete" type="button" onclick="document.getElementById('dialog-delete').show();">
+													<p>削除</p>
+												</button> -->
 											</td>
 										</tr>
-										<input type="hidden" name="customer_id" value="<?= $row['id']; ?>">
+
+										<!-- <dialog id="dialog-delete">
+											<h2>削除確認</h2>
+											<p>データを削除してもよろしいでしょうか？</p>
+											<button type="button" onclick="document.getElementById('dialog-delete').close();">
+												いいえ
+											</button>
+											<button type="submit" name="action">
+												はい
+											</button>
+										</dialog> -->
 									</form>
 							<?php
 								}
