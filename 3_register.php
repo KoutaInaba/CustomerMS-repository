@@ -12,7 +12,6 @@
 
 <body>
 	<!---------- データベース接続 ---------->
-
 	<div class="main-wrapper">
 		<!--================== 共通ヘッダー開始 ==================-->
 		<header class="main-header">
@@ -45,28 +44,28 @@
 
 						<div class="search-form__label">
 							<p>お名前</p>
-							<input type="text" id="nameID" name="name" placeholder="例）山田 太郎" value="山田 太郎">
+							<input type="text" id="nameID" name="name" placeholder="例）山田 太郎" value="">
 						</div>
 						<div id="name_error_Id" class="error-box"></div> <!-- error -->
 
 
 						<div class="search-form__label">
 							<p>フリガナ</p>
-							<input type="text" id="kanaID" name="kana" placeholder="例）ヤマダ タロウ" value="ヤマダ タロウ">
+							<input type="text" id="kanaID" name="kana" placeholder="例）ヤマダ タロウ" value="">
 						</div>
 						<div id="kana_error_Id" class="error-box"></div> <!-- error -->
 
 
 						<div class="search-form__label">
 							<p>メールアドレス</p>
-							<input type="text" id="emailID" name="email" placeholder="例）" value="3@_.W">
+							<input type="text" id="emailID" name="email" placeholder="例）" value="@xxx.jp">
 						</div>
 						<div id="email_error_Id" class="error-box"></div> <!-- error -->
 
 
 						<div class="search-form__label">
 							<p>電話番号</p>
-							<input type="text" id="telID" name="tel" placeholder="例）" value="0123456789">
+							<input type="text" id="telID" name="tel" placeholder="例）" value="0000000000">
 						</div>
 						<div id="tel_error_Id" class="error-box"></div> <!-- error -->
 
@@ -78,7 +77,7 @@
 								<span class="radio__text">男性</span>
 							</label>
 							<label class="radio">
-								<input class="radio__btn" type="radio" name="gender" value="1" checked>
+								<input class="radio__btn" type="radio" name="gender" value="1">
 								<span class="radio__text">女性</span>
 							</label>
 							<label class="radio">
@@ -91,7 +90,7 @@
 
 						<div class="search-form__label">
 							<p>生年月日</p>
-							<input type="date" id="birthID" name="birth" value="2024/05/14"> <!-- text => date -->
+							<input type="date" id="birthID" name="birth" value=""> <!-- text => date -->
 						</div>
 						<div id="birth_error_Id" class="error-box"></div> <!-- error -->
 
@@ -99,9 +98,9 @@
 						<div class="search-form__label">
 							<p>所属会社</p>
 							<select name="company_id" id="companyID">
-								<option value="0"><span>会社を選択してください</span></option>
+								<option value=""><span>会社を選択してください</span></option>
 								<option value="1">1</option>
-								<option value="2">2</option>
+								<option value="3">3</option>
 							</select>
 							<button class="btm-edit" type="button">
 								追加・編集

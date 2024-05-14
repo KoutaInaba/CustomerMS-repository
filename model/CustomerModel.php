@@ -8,7 +8,7 @@ class CustomerModel extends Model
 	// ---------- プロパティ ----------
 	protected $table = 'customers';			//データベースから取得するテーブルの指定
 	protected $primary = 'id';				//テーブルのプライマリーキーの指定
-	protected $inputName = 'customer_form';	//プライマリーキーを取得しているinputタグのname属性の指定
+	protected $inputName = 'customer_id';	//プライマリーキーを取得しているinputタグのname属性の指定
 
 
 	// ---------- コンストラクタ ----------

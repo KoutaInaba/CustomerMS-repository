@@ -117,17 +117,22 @@
 					<!-- 一覧 -->
 					<div class="table-wrap">
 						<table class="table">
+
 							<tr>
 								<th>顧客ID</th>
 								<th>
 									<p>顧客名</p>
 									<p>(カナ)</p>
 								</th>
-								<th>メールアドレス</th>
-								<th>電話番号</th>
+								<th>
+									<p>メールアドレス</p>
+									<p>電話番号</p>
+								</th>
 								<th>所属会社</th>
-								<th>新規日時</th>
-								<th>最終更新日時</th>
+								<th>
+									<p>新規登録日時</p>
+									<p>最終更新日時</p>
+								</th>
 								<th>編集ボタン</th>
 								<th>削除ボタン</th>
 							</tr>
@@ -136,46 +141,52 @@
 							<?php
 							if ($result->num_rows === 0) {
 							?>
-							<div>
-								顧客は登録されていません。
-							</div>
+								<div>
+									顧客は登録されていません。
+								</div>
 								<?php
 							} else {
 								while ($row = $result->fetch_assoc()) {
 								?>
-
-									<tr>
-										<td><?= $row['id']; ?></td>
-										<td>
-											<p><?= $row['name']; ?></p>
-											<p><?= $row['kana']; ?></p>
-										</td>
-										<td><?= $row['email']; ?></td>
-										<td><?= $row['tel']; ?></td>
-										<td><?= $row['company_id']; ?></td>
-										<td><?= $row['created_at']; ?></td>
-										<td><?= $row['updated_at']; ?></td>
-										<td>
-											<button class="btm-edit" type="button">
-												<p>編集</p>
-											</button>
-										</td>
-										<td>
-											<dialog id="dialog-delete">
-												<h2>削除確認</h2>
-												<p>データを削除してもよろしいでしょうか？</p>
-												<button type="button" onclick="document.getElementById('dialog-delete').close();">
-													いいえ
+									<form name="deleteForm" method="post" action="delete.php">
+										<tr>
+											<td><?= $row['id']; ?></td>
+											<td>
+												<p><?= $row['name']; ?></p>
+												<p><?= $row['kana']; ?></p>
+											</td>
+											<td>
+												<p><?= $row['email']; ?></p>
+												<p><?= $row['tel']; ?></p>
+											</td>
+											<td><?= $row['company_id']; ?></td>
+											<td>
+												<p><?= $row['created_at']; ?></p>
+												<p><?= $row['updated_at']; ?></p>
+											</td>
+											<td>
+												<button class="btm-edit" type="button">
+													<p>編集</p>
 												</button>
-												<button type="button" onclick="document.getElementById('dialog-delete').close();">
-													はい
+											</td>
+											<td>
+												<dialog id="dialog-delete">
+													<h2>削除確認</h2>
+													<p>データを削除してもよろしいでしょうか？</p>
+													<button type="button" onclick="document.getElementById('dialog-delete').close();">
+														いいえ
+													</button>
+													<button type="submit" name="action">
+														はい
+													</button>
+												</dialog>
+												<button class="btm-delete" type="button" onclick="document.getElementById('dialog-delete').show();">
+													<p>削除</p>
 												</button>
-											</dialog>
-											<button class="btm-delete" type="button" onclick="document.getElementById('dialog-delete').show();">
-												<p>削除</p>
-											</button>
-										</td>
-									</tr>
+											</td>
+										</tr>
+										<input type="hidden" name="customer_id" value="<?= $row['id']; ?>">
+									</form>
 							<?php
 								}
 							}
