@@ -114,8 +114,11 @@
 									<div>
 										<option value="1">会社は登録されていません。</option>
 									</div>
-									<?php
+								<?php
 								} else {
+								?>
+									<option value=""><span>所属会社を選択してください</span></option>
+									<?php
 									while ($row = $result->fetch_assoc()) {
 									?>
 										<option value="<?= $row['id']; ?>"><?= $row['name']; ?></option>
