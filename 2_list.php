@@ -115,20 +115,18 @@
 				</div>
 				<div class="content-box2">
 					<!-- 一覧 -->
-					<div class="table-wrap">
-						<table class="table">
-
-							<?php
-							if ($result->num_rows === 0) {
-							?>
-								<div>
-									顧客は登録されていません。
-								</div>
-								<?php
-							} else {
-								while ($row = $result->fetch_assoc()) {
-								?>
-
+					<?php
+					if ($result->num_rows === 0) {
+					?>
+						<div>
+							顧客は登録されていません。
+						</div>
+						<?php
+					} else {
+						while ($row = $result->fetch_assoc()) {
+						?>
+							<div class="table-wrap">
+								<table class="table">
 									<tr>
 										<th>顧客ID</th>
 										<th>
@@ -192,11 +190,11 @@
 										</dialog> -->
 									</form>
 							<?php
-								}
-							}
+						}
+					}
 							?>
-						</table>
-					</div>
+								</table>
+							</div>
 				</div>
 			</div>
 		</main>

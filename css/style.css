@@ -366,6 +366,7 @@
 .table-wrap .table th,
 .table-wrap .table td {
 	border: 1px solid #606b70;
+	padding: 1em;
 }
 
 .table-wrap .table th {
@@ -381,7 +382,7 @@
 /* 編集・削除ボタン */
 .content-box2 .table td .btm-edit,
 .content-box2 .table td .btm-delete {
-	display: flex;
+	display: block;
 	margin: auto;
 	color: #ffffff;
 	font-size: 20px;
@@ -397,8 +398,6 @@
 
 .content-box2 .table td .btm-delete {
 	background: rgb(245, 47, 47);
-	width: 80px;
-	height: 40px;
 }
 
 /* ==================== 一覧｜コンテンツ 終了 ==================== */
