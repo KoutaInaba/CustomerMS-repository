@@ -12,6 +12,15 @@
 
 <body>
 	<!---------- データベース接続 ---------->
+	<?php
+
+	require_once dirname(__FILE__) . '/model/CompanyModel.php';
+	$bm = new CompanyModel();
+	$result = $bm->search();
+	?>
+
+
+	<!---------- データベース接続 ---------->
 	<div class="main-wrapper">
 		<!--================== 共通ヘッダー開始 ==================-->
 		<header class="main-header">
@@ -98,9 +107,22 @@
 						<div class="search-form__label">
 							<p>所属会社</p>
 							<select name="company_id" id="companyID">
-								<option value=""><span>会社を選択してください</span></option>
-								<option value="1">1</option>
-								<option value="3">3</option>
+								<?php
+
+								if ($result->num_rows === 0) {
+								?>
+									<div>
+										<option value="1">会社は登録されていません。</option>
+									</div>
+									<?php
+								} else {
+									while ($row = $result->fetch_assoc()) {
+									?>
+										<option value="<?= $row['id']; ?>"><?= $row['name']; ?></option>
+								<?php
+									}
+								}
+								?>
 							</select>
 							<button class="btm-edit" type="button">
 								追加・編集

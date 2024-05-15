@@ -5,9 +5,10 @@ abstract class Model
 {
 	// ---------- プロパティ ----------
 	protected $dbCon;						//データベース接続するため
-	protected $table = 'customers';			//データベースから取得するテーブルの指定
-	protected $primary = 'id';				//テーブルのプライマリーキーの指定
-	protected $inputName = 'customer_id';	//プライマリーキーを取得しているinputタグのname属性の指定
+	protected $table;			//データベースから取得するテーブルの指定
+	protected $primary;
+	protected $inputName;	//プライマリーキーを取得しているinputタグのname属性の指定
+
 
 
 	// ---------- コンストラクタ ----------
@@ -23,7 +24,7 @@ abstract class Model
 	// ----- 一覧メソッド -----
 	public function search()
 	{
-		$sql = "SELECT * FROM {$this->table} ORDER BY created_at DESC;";		// 一覧用のSQL文
+		$sql = "SELECT * FROM {$this->table}";		// 一覧用のSQL文
 
 		$result = $this->dbCon->query($sql);
 		$this->dbCon->close();

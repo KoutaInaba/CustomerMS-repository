@@ -22,7 +22,6 @@
 
 
 
-
 	<div class="main-wrapper">
 		<!--================== 共通ヘッダー開始 ==================-->
 		<header class="main-header">
@@ -121,31 +120,33 @@
 						<div>
 							顧客は登録されていません。
 						</div>
-						<?php
+					<?php
 					} else {
-						while ($row = $result->fetch_assoc()) {
-						?>
-							<div class="table-wrap">
-								<table class="table">
-									<tr>
-										<th>顧客ID</th>
-										<th>
-											<p>顧客名</p>
-											<p>(カナ)</p>
-										</th>
-										<th>
-											<p>メールアドレス</p>
-											<p>電話番号</p>
-										</th>
-										<th>所属会社</th>
-										<th>
-											<p>新規登録日時</p>
-											<p>最終更新日時</p>
-										</th>
-										<th>編集ボタン</th>
-										<th>削除ボタン</th>
-									</tr>
+					?>
+						<div class="table-wrap">
+							<table class="table">
+								<tr>
+									<th>顧客ID</th>
+									<th>
+										<p>顧客名</p>
+										<p>(カナ)</p>
+									</th>
+									<th>
+										<p>メールアドレス</p>
+										<p>電話番号</p>
+									</th>
+									<th>所属会社</th>
+									<th>
+										<p>新規登録日時</p>
+										<p>最終更新日時</p>
+									</th>
+									<th>編集ボタン</th>
+									<th>削除ボタン</th>
+								</tr>
 
+								<?php
+								while ($row = $result->fetch_assoc()) {
+								?>
 									<form name="deleteForm" method="post" action="delete.php">
 										<input type="hidden" name="customer_id" value="<?= $row['id']; ?>">
 										<tr>
@@ -190,11 +191,11 @@
 										</dialog> -->
 									</form>
 							<?php
-						}
-					}
+								}
+							}
 							?>
-								</table>
-							</div>
+							</table>
+						</div>
 				</div>
 			</div>
 		</main>

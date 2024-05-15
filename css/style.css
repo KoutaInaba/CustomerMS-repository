@@ -342,7 +342,7 @@
 
 
 /*---------- 一覧表 ----------*/
-.content-list .content-box2 .table-wrap {
+.table-wrap {
 	width: 100%;
 	height: auto;
 	margin-left: 50px;
@@ -355,7 +355,7 @@
 
 
 /* 表のラップ */
-.table-wrap .table {
+.table {
 	width: 100%;
 	min-width: 1400px;
 	border-collapse: collapse;
@@ -363,41 +363,43 @@
 
 
 /* 表 */
-.table-wrap .table th,
-.table-wrap .table td {
+.table th,
+.table td {
 	border: 1px solid #606b70;
 	padding: 1em;
 }
 
-.table-wrap .table th {
+.table th {
 	background: #2e7c9f;
 	color: #ffffff;
 }
 
-.table-wrap .table td {
+.table td {
 	background: #ffffff;
 }
 
 
 /* 編集・削除ボタン */
-.content-box2 .table td .btm-edit,
-.content-box2 .table td .btm-delete {
+.table td .btm-edit,
+.table td .btm-delete {
 	display: block;
 	margin: auto;
 	color: #ffffff;
 	font-size: 20px;
 	border-radius: 5px;
 	border: unset;
+}
+
+.table td .btm-edit {
+	background: #264b5c;
 	width: 80px;
 	height: 40px;
 }
 
-.content-box2 .table td .btm-edit {
-	background: #264b5c;
-}
-
-.content-box2 .table td .btm-delete {
+.table td .btm-delete {
 	background: rgb(245, 47, 47);
+	width: 80px;
+	height: 40px;
 }
 
 /* ==================== 一覧｜コンテンツ 終了 ==================== */
