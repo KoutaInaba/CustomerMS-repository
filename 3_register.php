@@ -149,7 +149,6 @@
 
 	</div>
 	<script src="./js/validation.js"></script>
-	<script type="module" src="./js/signup_companies.js"></script>
 </body>
 
 </html>

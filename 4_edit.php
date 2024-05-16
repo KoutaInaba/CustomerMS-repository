@@ -55,6 +55,7 @@
 					?>
 
 					<form method="post" action="./update_submit.php" name="customer_form" onsubmit="return regSubForm()">
+						<input type="hidden" name="customer_id" value="<?= $row['id']; ?>">
 
 						<div class="search-form__label">
 							<p>お名前</p>

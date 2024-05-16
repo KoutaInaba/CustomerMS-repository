@@ -9,8 +9,7 @@ class CustomerModel extends Model
 	protected $primary = 'id';
 	protected $foreign = 'company_id';
 
-	protected $table2 = 'companies';	
-	protected $primary2 = 'id';				//テーブルのプライマリーキーの指定
+	protected $table2 = 'companies';
 
 	protected $inputName = 'customer_id';	//プライマリーキーを取得しているinputタグのname属性の指定
 
@@ -41,16 +40,59 @@ class CustomerModel extends Model
 	// ----- 一覧メソッド -----
 	public function search()
 	{
-		// 結合
-		$sql = "SELECT * FROM {$this->table} LEFT JOIN {$this->table2} ON {$this->table}.{$this->foreign}={$this->table2}.{$this->primary2};";
-		$result = $this->dbCon->query($sql);
-
 		// 一覧用のSQL文
-		$sql = "SELECT * FROM {$this->table} ORDER BY created_at DESC;";
+		// $sql = "SELECT * FROM {$this->table} ORDER BY created_at DESC;";
+
+		// 結合一覧
+		$sql = 
+		"SELECT 
+			{$this->table}.{$this->primary}, 
+			{$this->table}.name As name,
+			{$this->table}.kana,
+			{$this->table}.email,
+			{$this->table}.tel,
+			{$this->table}.gender,
+			{$this->table}.birth,
+			{$this->table}.{$this->foreign},
+			{$this->table}.created_at,
+			{$this->table}.updated_at,
+			{$this->table2}.id AS company_id, 
+			{$this->table2}.name AS company_name
+		FROM 
+			{$this->table} 
+		INNER JOIN 
+			{$this->table2} 
+		ON 
+			{$this->table}.{$this->foreign} = {$this->table2}.id
+		ORDER BY 
+			created_at DESC;";
+
+		$result = $this->dbCon->query($sql);
+		$this->dbCon->close();
+
+		return $result;
+	}
+
+
+	// ----- 更新メソッド -----
+	public function update($data)
+	{
+		// 更新用のSQL文
+		$sql = "UPDATE {$this->table} 
+		SET 
+			`name`='" . $data['name'] . "', 
+			`kana`='" . $data['kana'] . "', 
+			`email`='" . $data['email'] . "', 
+			`tel`='" . $data['tel'] . "', 
+			`gender`='" . $data['gender'] . "', 
+			`birth`='" . date('Y/m/d') . "', 
+			{$this->foreign}='" . $data['company_id'] . "',
+			`updated_at`='" . date('Y-m-d H:i:s') . "'
+		WHERE 
+			{$this->primary} = " . $data[$this->inputName] . ";";
 		$result = $this->dbCon->query($sql);
 		$this->dbCon->close();
 
 		return $result;
 	}
 }
-

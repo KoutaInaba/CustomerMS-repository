@@ -159,7 +159,9 @@
 												<p><?= $row['email']; ?></p>
 												<p><?= $row['tel']; ?></p>
 											</td>
-											<td><?= $row['company_id']; ?></td>
+											<td>
+												<?= $row['company_name']; ?>
+											</td>
 											<td>
 												<p><?= $row['created_at']; ?></p>
 												<p><?= $row['updated_at']; ?></p>
