@@ -38,7 +38,7 @@ class CustomerModel extends Model
 
 
 	// ----- 一覧メソッド -----
-	public function search()
+	public function search($data)
 	{
 		// 一覧用のSQL文
 		// $sql = "SELECT * FROM {$this->table} ORDER BY created_at DESC;";
@@ -64,6 +64,8 @@ class CustomerModel extends Model
 			{$this->table2} 
 		ON 
 			{$this->table}.{$this->foreign} = {$this->table2}.id
+		WHERE
+			$data
 		ORDER BY 
 			created_at DESC;";
 

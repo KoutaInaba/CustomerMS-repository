@@ -14,12 +14,17 @@
 	<!---------- データベース接続 ---------->
 	<?php
 
+	$item = "company_id = 3";
+
 	require_once dirname(__FILE__) . '/model/CustomerModel.php';
 	$bm = new CustomerModel();
-	$result = $bm->search();
+	$result = $bm->search($item);
+
+	// require_once dirname(__FILE__) . '/model/CustomerModel.php';
+	// $bm = new CustomerModel();
+	// $result = $bm->search(null);
 
 	?>
-
 
 
 	<div class="main-wrapper">
@@ -51,12 +56,14 @@
 				</div>
 				<div class="content-box1">
 					<div class="box1-child1">
+
 						<!-- 登録ボタン -->
 						<button class="btm-register" onclick="location.href='./3_register.php'">
 							<p>新規登録</p>
 						</button>
 					</div>
 					<div class="box1-child2">
+
 						<!-- 検索欄 -->
 						<form action="./2_list.php" onsubmit="return listSubForm()">
 

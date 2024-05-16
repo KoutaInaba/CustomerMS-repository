@@ -16,7 +16,7 @@
 
 	require_once dirname(__FILE__) . '/model/CompanyModel.php';
 	$bm = new CompanyModel();
-	$result = $bm->search();
+	$result = $bm->search(null);
 	?>
 
 

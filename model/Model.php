@@ -22,7 +22,7 @@ abstract class Model
 	// ---------- メソッド ----------
 	
 	// ----- 一覧メソッド -----
-	public function search()
+	public function search($data)
 	{
 		$sql = "SELECT * FROM {$this->table};";		// 一覧用のSQL文
 
