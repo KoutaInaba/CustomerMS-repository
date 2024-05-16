@@ -147,7 +147,7 @@
 								<?php
 								while ($row = $result->fetch_assoc()) {
 								?>
-									<form name="deleteForm" method="post" action="delete.php">
+									<form name="deleteForm" method="post" action="?">
 										<input type="hidden" name="customer_id" value="<?= $row['id']; ?>">
 										<tr>
 											<td><?= $row['id']; ?></td>
@@ -165,12 +165,12 @@
 												<p><?= $row['updated_at']; ?></p>
 											</td>
 											<td>
-												<button class="btm-edit" type="button">
+												<button class="btm-edit" type="submit" formaction="./4_edit.php">
 													<p>編集</p>
 												</button>
 											</td>
 											<td>
-												<button class="btm-delete" type="submit" name="action">
+												<button class="btm-delete" type="submit" formaction="delete_submit.php">
 													<p>削除</p>
 												</button>
 												<!-- <button class="btm-delete" type="button" onclick="document.getElementById('dialog-delete').show();">

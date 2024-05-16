@@ -4,7 +4,6 @@ require_once dirname(__FILE__) . '/Model.php';
 
 class CustomerModel extends Model
 {
-
 	// ---------- プロパティ ----------
 	protected $table = 'customers';			//データベースから取得するテーブルの指定
 	protected $primary = 'id';
@@ -24,7 +23,6 @@ class CustomerModel extends Model
 
 
 	// ---------- メソッド ----------
-
 	// ----- 新規登録メソッド -----
 	public function insert($data)
 	{
@@ -40,30 +38,19 @@ class CustomerModel extends Model
 	}
 
 
-	// ----- 更新メソッド -----
-	public function update($data)
-	{
-		$sql = "UPDATE {$this->table} SET `detail` = '" . $data['detail'] . "' WHERE {$this->primary} = " . $data[$this->inputName] . ";";		// 更新用のSQL文
-
-		$result = $this->dbCon->query($sql);
-		$this->dbCon->close();
-
-		return $result;
-	}
-
-
 	// ----- 一覧メソッド -----
 	public function search()
 	{
-		$sql = "SELECT * FROM {$this->table} LEFT JOIN {$this->table2} ON {$this->table}.{$this->foreign}={$this->table2}.{$this->primary2}";
+		// 結合
+		$sql = "SELECT * FROM {$this->table} LEFT JOIN {$this->table2} ON {$this->table}.{$this->foreign}={$this->table2}.{$this->primary2};";
 		$result = $this->dbCon->query($sql);
 
-		$sql = "SELECT * FROM {$this->table} ORDER BY created_at DESC;";		// 一覧用のSQL文
-
+		// 一覧用のSQL文
+		$sql = "SELECT * FROM {$this->table} ORDER BY created_at DESC;";
 		$result = $this->dbCon->query($sql);
 		$this->dbCon->close();
 
 		return $result;
 	}
-
 }
+

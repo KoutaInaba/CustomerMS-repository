@@ -33,6 +33,18 @@ class CompanyModel extends Model
 	}
 
 
+	// ----- 選択メソッド -----
+	public function select($data)
+	{
+		$sql = "SELECT * FROM {$this->table} WHERE {$this->primary} = " . $data . ";";		// 選択用のSQL文
+
+		$result = $this->dbCon->query($sql);
+		$this->dbCon->close();
+
+		return $result;
+	}
+
+
 	// ----- 新規登録メソッド -----
 	// public function insert($data)
 	// {

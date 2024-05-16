@@ -24,7 +24,7 @@ abstract class Model
 	// ----- 一覧メソッド -----
 	public function search()
 	{
-		$sql = "SELECT * FROM {$this->table}";		// 一覧用のSQL文
+		$sql = "SELECT * FROM {$this->table};";		// 一覧用のSQL文
 
 		$result = $this->dbCon->query($sql);
 		$this->dbCon->close();
@@ -36,7 +36,7 @@ abstract class Model
 	// ----- 選択メソッド -----
 	public function select($data)
 	{
-		$sql = "SELECT * FROM {$this->table} WHERE {$this->primary} = " . $data['id'];		// 選択用のSQL文
+		$sql = "SELECT * FROM {$this->table} WHERE {$this->primary} = " . $data[$this->inputName] . ";";		// 選択用のSQL文
 
 		$result = $this->dbCon->query($sql);
 		$this->dbCon->close();
