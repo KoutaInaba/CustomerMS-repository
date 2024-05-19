@@ -13,10 +13,11 @@
 <body>
 	<!---------- データベース接続 ---------->
 	<?php
+	$condition ="1";
 
 	require_once dirname(__FILE__) . '/model/CompanyModel.php';
 	$bm = new CompanyModel();
-	$result = $bm->search(null);
+	$result = $bm->search($condition);
 	?>
 
 
@@ -82,15 +83,15 @@
 						<div class="search-form__radio">
 							<p>性別</p>
 							<label class="radio">
-								<input class="radio__btn" type="radio" name="gender" value="0">
+								<input class="radio__btn" type="radio" name="gender" value="">
 								<span class="radio__text">男性</span>
 							</label>
 							<label class="radio">
-								<input class="radio__btn" type="radio" name="gender" value="1">
+								<input class="radio__btn" type="radio" name="gender" value="">
 								<span class="radio__text">女性</span>
 							</label>
 							<label class="radio">
-								<input class="radio__btn" type="radio" name="gender" value="2">
+								<input class="radio__btn" type="radio" name="gender" value="">
 								<span class="radio__text">その他</span>
 							</label>
 						</div>

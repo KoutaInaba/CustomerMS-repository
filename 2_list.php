@@ -14,11 +14,8 @@
 	<!---------- データベース接続 ---------->
 	<?php
 
-	$item = "company_id = 3";
 
-	require_once dirname(__FILE__) . '/model/CustomerModel.php';
-	$bm = new CustomerModel();
-	$result = $bm->search($item);
+
 
 	// require_once dirname(__FILE__) . '/model/CustomerModel.php';
 	// $bm = new CustomerModel();
@@ -64,68 +61,150 @@
 					</div>
 					<div class="box1-child2">
 
+
+
+
+
 						<!-- 検索欄 -->
-						<form action="./2_list.php" onsubmit="return listSubForm()">
+
+						<form method="post" action="./2_list.php" name="customer_form">
 
 							<div class="search-form__label">
 								<p>顧客名</p>
-								<input type="text" id="nameID">
+								<input type="text" id="nameID" name="name_search" value="">
 							</div>
 							<div id="name_error_Id" class="error-box"></div> <!-- error -->
 
 							<div class="search-form__label">
 								<p>顧客名(カナ)</p>
-								<input type="text" id="kanaID">
+								<input type="text" id="kanaID" name="kana_search" value="">
 							</div>
 							<div id="kana_error_Id" class="error-box"></div> <!-- error -->
 
 							<div class="search-form__radio">
 								<p>性別</p>
 								<label class="radio">
-									<input class="radio__btn" type="radio" name="gender" value="全て" checked="checked">
-									<span class="radio__text">全て</span>
-								</label>
-								<label class="radio">
-									<input class="radio__btn" type="radio" name="gender" value="男性">
+									<input class="radio__btn" type="checkbox" name="gender_search[]" value="0" checked>
 									<span class="radio__text">男性</span>
 								</label>
 								<label class="radio">
-									<input class="radio__btn" type="radio" name="gender" value="女性">
+									<input class="radio__btn" type="checkbox" name="gender_search[]" ] value="1" checked>
 									<span class="radio__text">女性</span>
+								</label>
+								<label class="radio">
+									<input class="radio__btn" type="checkbox" name="gender_search[]" value="2" checked>
+									<span class="radio__text">その他</span>
 								</label>
 							</div>
 							<div class="search-form__label">
 								<p>生年月日</p>
 								<div class="date-box">
-									<input type="date" id="min-date">
+									<input type="date" name="min_date_search" value=">">
 									<p>~</p>
-									<input type="date" id="max-date">
+									<input type="date" name="max_date_search" value="<?= date("Y-m-d"); ?>">
 								</div>
 							</div>
 							<div class="search-form__label">
 								<p>所属会社</p>
-								<select name="" id="">
-									<option value=""></option>
-									<option value=""></option>
-									<option value=""></option>
-									<option value=""></option>
-									<option value=""></option>
+								<select name="company_id_search" id="">
+									<option value=""><span>所属会社を選択してください</span></option>
+									<?php
+									$condition = "1";
+									require_once dirname(__FILE__) . '/model/CompanyModel.php';
+									$bm = new CompanyModel();
+									$result = $bm->search($condition);
+									while ($row = $result->fetch_assoc()) {
+									?>
+										<option value="<?= $row['id']; ?>"><?= $row['name']; ?></option>
+									<?php
+									}
+									?>
 								</select>
 							</div>
 
-							<button class="btm-search" type="submit">
+							<button class="btm-search" type="submit" name="search" id="search">
 								<p>検索</p>
 							</button>
 						</form>
 					</div>
 				</div>
+
+
+
+
+
 				<div class="content-box2">
 					<!-- 一覧 -->
 					<?php
+					// ---------- 検索条件 ---------- 
+					$condition = "1";
+
+					//
+					if (isset($_POST['search'])) {
+
+						$name = $_POST['name_search'];
+						$kana = $_POST['kana_search'];
+						$gender = $_POST['gender_search'];
+						$gender_arr = implode(",", $_POST['gender_search']);
+						$min_date = $_POST['min_date_search'];
+						$max_date = $_POST['max_date_search'];
+						$company = $_POST['company_id_search'];
+
+						// var_dump($gender);
+						// echo "<br>";
+						// var_dump($gender_arr);
+						// echo "<br>";
+						// var_dump($_POST['min_date_search']);
+						// echo "<br>";
+						// var_dump($_POST['company_id_search']);
+						// echo "<br>";
+
+						//name
+						if (isset($name)) {
+							$condition .= " AND customers.name LIKE '%" . $name . "%'";
+						}
+
+
+						//kana
+						if (isset($kana)) {
+							$condition .= " AND kana LIKE '%" . $kana . "%'";
+						}
+
+						//gender
+						if (isset($gender) && $gender != "") {
+							$condition .= " AND ( gender IN (" . $gender_arr . "))";
+						}
+
+
+						//birth
+						if (isset($min_date)) {
+							$condition .= " AND birth >= '" . $min_date . "'";
+						}
+
+						if (isset($max_date)) {
+							$condition .= " AND birth <= '" . $max_date . "'";
+						}
+
+
+						//company
+						if (isset($company) && $company != "") {
+							$condition .= " AND company_id = " . $company;
+						}
+					}
+
+
+
+
+
+
+					require_once dirname(__FILE__) . '/model/CustomerModel.php';
+					$bm = new CustomerModel();
+					$result = $bm->search($condition);
+
 					if ($result->num_rows === 0) {
 					?>
 						<div>
-							顧客は登録されていません。
+							未登録
 						</div>
 					<?php
 					} else {
@@ -170,7 +249,7 @@
 												<?= $row['company_name']; ?>
 											</td>
 											<td>
-												<p><?= $row['created_at']; ?></p>
+												<p><?= $row['birth']; ?></p>
 												<p><?= $row['updated_at']; ?></p>
 											</td>
 											<td>

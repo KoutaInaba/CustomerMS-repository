@@ -7,7 +7,6 @@ class CustomerModel extends Model
 	// ---------- プロパティ ----------
 	protected $table = 'customers';			//データベースから取得するテーブルの指定
 	protected $primary = 'id';
-	protected $foreign = 'company_id';
 
 	protected $table2 = 'companies';
 
@@ -26,8 +25,8 @@ class CustomerModel extends Model
 	public function insert($data)
 	{
 		// 新規登録用のSQL文
-		$sql = "INSERT INTO {$this->table} ({$this->primary}, `name`, `kana`, `email`, `tel`, `gender`, `birth`, {$this->foreign}, `created_at`, `updated_at`) 
-			VALUES (NUll, '" . $data['name'] . "', '" . $data['kana'] . "', '" . $data['email'] . "', '" . $data['tel'] . "', '" . $data['gender'] . "', '" . date('Y/m/d') . "', '" . $data['company_id'] . "', '" . date('Y-m-d H:i:s') . "', '" . date('Y-m-d H:i:s') . "'
+		$sql = "INSERT INTO {$this->table} ({$this->primary}, `name`, `kana`, `email`, `tel`, `gender`, `birth`, company_id, `created_at`, `updated_at`) 
+			VALUES (NUll, '" . $data['name'] . "', '" . $data['kana'] . "', '" . $data['email'] . "', '" . $data['tel'] . "', '" . $data['gender'] . "', '" . $data['birth'] . "', '" . $data['company_id'] . "', '" . date('Y-m-d H:i:s') . "', '" . date('Y-m-d H:i:s') . "'
 			);";
 
 		$result = $this->dbCon->query($sql);
@@ -47,13 +46,13 @@ class CustomerModel extends Model
 		$sql = 
 		"SELECT 
 			{$this->table}.{$this->primary}, 
-			{$this->table}.name As name,
+			{$this->table}.name,
 			{$this->table}.kana,
 			{$this->table}.email,
 			{$this->table}.tel,
 			{$this->table}.gender,
 			{$this->table}.birth,
-			{$this->table}.{$this->foreign},
+			{$this->table}.company_id,
 			{$this->table}.created_at,
 			{$this->table}.updated_at,
 			{$this->table2}.id AS company_id, 
@@ -63,11 +62,10 @@ class CustomerModel extends Model
 		INNER JOIN 
 			{$this->table2} 
 		ON 
-			{$this->table}.{$this->foreign} = {$this->table2}.id
+			{$this->table}.company_id = {$this->table2}.id
 		WHERE
 			$data
-		ORDER BY 
-			created_at DESC;";
+		;";
 
 		$result = $this->dbCon->query($sql);
 		$this->dbCon->close();
@@ -87,8 +85,8 @@ class CustomerModel extends Model
 			`email`='" . $data['email'] . "', 
 			`tel`='" . $data['tel'] . "', 
 			`gender`='" . $data['gender'] . "', 
-			`birth`='" . date('Y/m/d') . "', 
-			{$this->foreign}='" . $data['company_id'] . "',
+			`birth`='" . $data['birth'] . "', 
+			company_id='" . $data['company_id'] . "',
 			`updated_at`='" . date('Y-m-d H:i:s') . "'
 		WHERE 
 			{$this->primary} = " . $data[$this->inputName] . ";";
