@@ -1,6 +1,6 @@
 <?php
 
-require_once './Model.php';
+require_once dirname(__FILE__) . '/Model.php';
 
 class CustomerModel extends Model
 {

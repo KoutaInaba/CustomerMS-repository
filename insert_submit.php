@@ -1,6 +1,6 @@
 <?php
 
-require_once './model/CustomerModel.php';
+require_once dirname(__FILE__) . '/model/CustomerModel.php';
 $bm = new CustomerModel();
 $result = $bm->insert($_POST);
 

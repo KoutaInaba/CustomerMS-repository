@@ -121,14 +121,14 @@
 									<?php
 									$condition = "1";
 
-									require_once './model/CompanyModel.php';
+									require_once dirname(__FILE__) . '/model/CompanyModel.php';
 									$bm = new CompanyModel();
 									$result = $bm->search($condition);
 
 									if (!$result) {
 										exit('登録に失敗しました。' . $dbCon->error);
 									}
-
+									
 									while ($row = $result->fetch_assoc()) {
 									?>
 										<option value="<?= $row['id']; ?>"><?= $row['name']; ?></option>
@@ -209,7 +209,7 @@
 
 
 
-					require_once './model/CustomerModel.php';
+					require_once dirname(__FILE__) . '/model/CustomerModel.php';
 					$bm = new CustomerModel();
 					$result = $bm->search($condition);
 

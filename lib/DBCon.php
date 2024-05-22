@@ -7,7 +7,7 @@ class DBCon
 	// ---------- プロパティ ----------
 	private $dbServer = "localhost";	// DBサーバ名
 	private $dbUser = "root";			// ユーザ名
-	private $dbPassword = "0000000";			// パスワード
+	private $dbPassword = "";			// パスワード
 	private $dbName = "customer_ms";	// データベース名
 	private $resource;					// データリソース
 
