@@ -18,6 +18,9 @@
 	$bm = new CustomerModel();
 	$result = $bm->select($_POST);
 
+	if (!$result) {
+		exit('登録に失敗しました。' . $dbCon->error);
+	}
 	?>
 
 
@@ -126,6 +129,10 @@
 								require_once dirname(__FILE__) . '/model/CompanyModel.php';
 								$bm = new CompanyModel();
 								$result = $bm->search(null);
+
+								if (!$result) {
+									exit('登録に失敗しました。' . $dbCon->error);
+								}
 
 								while ($row = $result->fetch_assoc()) {
 								?>

@@ -1,23 +1,29 @@
+function deleteCheck() {
+	
+}
+
+
+
+
 function listSubForm() {
 	//変数の定義
-	// var name = document.getElementById("nameID").value;
-	// var kana = document.getElementById("kanaID").value;
+	var gender = document.getElementsByName("gender_search[]");
 	var isRight = true;
 
 
-	// ---------- 名前のチェック ----------
-	// if (name.length < 3) {
-	// 	document.getElementById("name_error_Id").innerHTML = "※3文字以上入力してください";
-	// 	isRight = false;
-	// }
+	// ---------- 性別のチェック ----------
+	var flag = false;
 
+	for (var i = 0; i < gender.length; i++) {
+		if (gender[i].checked) {
+			flag = true;
+		}
+	}
 
-	// ---------- フリガナのチェック ----------
-	// if (kana.length < 3) {
-	// 	document.getElementById("kana_error_Id").innerHTML = "※3文字以上入力してください";
-	// 	isRight = false;
-	// }
-
+	if (!flag) {
+		document.getElementById("gender_error_Id").innerHTML = "※入力が必須です";
+		isRight = false;
+	}
 
 	return isRight;
 }

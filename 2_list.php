@@ -67,7 +67,8 @@
 
 						<!-- 検索欄 -->
 
-						<form method="post" action="./2_list.php" name="customer_form">
+						<form method="post" action="./2_list.php" name="customer_form" onsubmit="return listSubForm()">
+
 
 							<div class="search-form__label">
 								<p>顧客名</p>
@@ -75,11 +76,13 @@
 							</div>
 							<div id="name_error_Id" class="error-box"></div> <!-- error -->
 
+
 							<div class="search-form__label">
 								<p>顧客名(カナ)</p>
 								<input type="text" id="kanaID" name="kana_search" value="">
 							</div>
 							<div id="kana_error_Id" class="error-box"></div> <!-- error -->
+
 
 							<div class="search-form__radio">
 								<p>性別</p>
@@ -96,6 +99,10 @@
 									<span class="radio__text">その他</span>
 								</label>
 							</div>
+							<!-- error -->
+							<div id="gender_error_Id" class="error-box"></div>
+
+
 							<div class="search-form__label">
 								<p>生年月日</p>
 								<div class="date-box">
@@ -104,15 +111,24 @@
 									<input type="date" name="max_date_search" value="<?= date("Y-m-d"); ?>">
 								</div>
 							</div>
+
+
 							<div class="search-form__label">
 								<p>所属会社</p>
 								<select name="company_id_search" id="">
 									<option value=""><span>所属会社を選択してください</span></option>
+									
 									<?php
 									$condition = "1";
+
 									require_once dirname(__FILE__) . '/model/CompanyModel.php';
 									$bm = new CompanyModel();
 									$result = $bm->search($condition);
+
+									if (!$result) {
+										exit('登録に失敗しました。' . $dbCon->error);
+									}
+									
 									while ($row = $result->fetch_assoc()) {
 									?>
 										<option value="<?= $row['id']; ?>"><?= $row['name']; ?></option>
@@ -122,9 +138,12 @@
 								</select>
 							</div>
 
+
 							<button class="btm-search" type="submit" name="search" id="search">
 								<p>検索</p>
 							</button>
+
+
 						</form>
 					</div>
 				</div>
@@ -137,6 +156,7 @@
 					<!-- 一覧 -->
 					<?php
 					// ---------- 検索条件 ---------- 
+
 					$condition = "1";
 
 					//
@@ -150,14 +170,6 @@
 						$max_date = $_POST['max_date_search'];
 						$company = $_POST['company_id_search'];
 
-						// var_dump($gender);
-						// echo "<br>";
-						// var_dump($gender_arr);
-						// echo "<br>";
-						// var_dump($_POST['min_date_search']);
-						// echo "<br>";
-						// var_dump($_POST['company_id_search']);
-						// echo "<br>";
 
 						//name
 						if (isset($name)) {
