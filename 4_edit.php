@@ -14,7 +14,7 @@
 	<!---------- データベース接続 ---------->
 	<?php
 
-	require_once dirname(__FILE__) . '/model/CustomerModel.php';
+	require_once './model/CustomerModel.php';
 	$bm = new CustomerModel();
 	$result = $bm->select($_POST);
 
@@ -117,7 +117,7 @@
 							<p>所属会社</p>
 							<select name="company_id" id="companyID">
 								<?php
-								require_once dirname(__FILE__) . '/model/CompanyModel.php';
+								require_once './model/CompanyModel.php';
 								$bm = new CompanyModel();
 								$result = $bm->select($row['company_id']);
 								$row = $result->fetch_assoc();
@@ -126,7 +126,7 @@
 								<option value="<?= $row['id']; ?>"><?= $row['name']; ?></option>
 
 								<?php
-								require_once dirname(__FILE__) . '/model/CompanyModel.php';
+								require_once './model/CompanyModel.php';
 								$bm = new CompanyModel();
 								$result = $bm->search(null);
 

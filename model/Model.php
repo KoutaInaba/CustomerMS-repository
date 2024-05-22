@@ -1,5 +1,5 @@
 <?php
-require_once dirname(__FILE__) . '/../lib/DBCon.php';
+require_once '../lib/DBCon.php';
 
 abstract class Model
 {
