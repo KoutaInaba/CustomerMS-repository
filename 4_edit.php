@@ -91,15 +91,15 @@
 						<div class="search-form__radio">
 							<p>性別</p>
 							<label class="radio">
-								<input class="radio__btn" type="radio" name="gender" <?php if ($row['gender'] === '0') { ?> checked <?php } ?>>
+								<input class="radio__btn" type="radio" name="gender" <?php if ($row['gender'] === '0') { ?> checked <?php } ?> value="0">
 								<span class="radio__text">男性</span>
 							</label>
 							<label class="radio">
-								<input class="radio__btn" type="radio" name="gender" value="1" <?php if ($row['gender'] === '1') { ?> checked <?php } ?>>
+								<input class="radio__btn" type="radio" name="gender" value="1" <?php if ($row['gender'] === '1') { ?> checked <?php } ?> value="1">
 								<span class="radio__text">女性</span>
 							</label>
 							<label class="radio">
-								<input class="radio__btn" type="radio" name="gender" value="2" <?php if ($row['gender'] === '2') { ?> checked <?php } ?>>
+								<input class="radio__btn" type="radio" name="gender" value="2" <?php if ($row['gender'] === '2') { ?> checked <?php } ?> value="2">
 								<span class="radio__text">その他</span>
 							</label>
 						</div>
