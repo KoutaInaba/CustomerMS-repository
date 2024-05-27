@@ -74,14 +74,16 @@
 								<p>顧客名</p>
 								<input type="text" id="nameID" name="name_search" value="">
 							</div>
-							<div id="name_error_Id" class="error-box"></div> <!-- error -->
+							<!-- error -->
+							<div id="name_error_Id" class="error-box"></div>
 
 
 							<div class="search-form__label">
 								<p>顧客名(カナ)</p>
 								<input type="text" id="kanaID" name="kana_search" value="">
 							</div>
-							<div id="kana_error_Id" class="error-box"></div> <!-- error -->
+							<!-- error -->
+							<div id="kana_error_Id" class="error-box"></div>
 
 
 							<div class="search-form__radio">
@@ -106,18 +108,20 @@
 							<div class="search-form__label">
 								<p>生年月日</p>
 								<div class="date-box">
-									<input type="date" name="min_date_search" value=">">
+									<input type="date" name="min_date_search" id="min_date_ID" value=">">
 									<p>~</p>
-									<input type="date" name="max_date_search" value="<?= date("Y-m-d"); ?>">
+									<input type="date" name="max_date_search" id="max_date_ID" value="<?= date("Y-m-d"); ?>">
 								</div>
 							</div>
+							<!-- error -->
+							<div id="birth_error_Id" class="error-box"></div>
 
 
 							<div class="search-form__label">
 								<p>所属会社</p>
 								<select name="company_id_search" id="">
 									<option value=""><span>所属会社を選択してください</span></option>
-									
+
 									<?php
 									$condition = "1";
 
@@ -128,7 +132,7 @@
 									if (!$result) {
 										exit('登録に失敗しました。' . $dbCon->error);
 									}
-									
+
 									while ($row = $result->fetch_assoc()) {
 									?>
 										<option value="<?= $row['id']; ?>"><?= $row['name']; ?></option>
@@ -261,7 +265,7 @@
 												<?= $row['company_name']; ?>
 											</td>
 											<td>
-												<p><?= $row['birth']; ?></p>
+												<p><?= $row['created_at']; ?></p>
 												<p><?= $row['updated_at']; ?></p>
 											</td>
 											<td>
