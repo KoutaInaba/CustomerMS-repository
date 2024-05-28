@@ -274,7 +274,7 @@
 												</button>
 											</td>
 											<td>
-												<button class="btm-delete" type="submit" formaction="delete_submit.php">
+												<button class="btm-delete" type="submit" id="deleteID" formaction="./delete_submit.php">
 													<p>削除</p>
 												</button>
 												<!-- <button class="btm-delete" type="button" onclick="document.getElementById('dialog-delete').show();">

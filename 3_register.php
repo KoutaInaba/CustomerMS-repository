@@ -72,14 +72,14 @@
 
 						<div class="search-form__label">
 							<p>メールアドレス</p>
-							<input type="text" id="emailID" name="email" placeholder="例）" value="@xxx.jp">
+							<input type="text" id="emailID" name="email" placeholder="例）xxx@xxx.xxx" value=""> 
 						</div>
 						<div id="email_error_Id" class="error-box"></div> <!-- error -->
 
 
 						<div class="search-form__label">
 							<p>電話番号</p>
-							<input type="text" id="telID" name="tel" placeholder="例）" value="0000000000">
+							<input type="text" id="telID" name="tel" placeholder="例）0123456789" value="">
 						</div>
 						<div id="tel_error_Id" class="error-box"></div> <!-- error -->
 

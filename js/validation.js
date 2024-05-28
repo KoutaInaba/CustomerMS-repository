@@ -2,7 +2,7 @@ function deleteCheck() {
 	
 }
 
-
+var btn = document.getElementById('deleteID');
 
 
 function listSubForm() {
@@ -18,18 +18,22 @@ function listSubForm() {
 
 	// ---------- 名前のチェック ----------
 	if (name.length > 32) {
-		document.getElementById("name_error_Id").innerHTML = "※3文字以上、32文字以内で入力してください";
+		document.getElementById("name_error_Id").innerHTML = "※32文字以内で入力してください";
 		isRight = false;
+	} else {
+		document.getElementById("name_error_Id").innerHTML = "";
 	}
 
-
+	isRight = true;
 	// ---------- フリガナのチェック ----------
 	if (kana.length > 32) {
-		document.getElementById("kana_error_Id").innerHTML = "※3文字以上、32文字以内で入力してください";
+		document.getElementById("kana_error_Id").innerHTML = "※32文字以内で入力してください";
 		isRight = false;
+	} else {
+		document.getElementById("kana_error_Id").innerHTML = "";
 	}
 
-
+	isRight = true;
 	// ---------- 性別のチェック ----------
 	var flag = false;
 
@@ -42,13 +46,17 @@ function listSubForm() {
 	if (!flag) {
 		document.getElementById("gender_error_Id").innerHTML = "※性別は1つ以上選択して検索してください";
 		isRight = false;
+	} else {
+		document.getElementById("gender_error_Id").innerHTML = "";
 	}
 
-
+	isRight = true;
 	// ---------- 生年月日のチェック ----------
 	if (min > max) {
 		document.getElementById("birth_error_Id").innerHTML = "※正しく範囲を指定してください";
 		isRight = false;
+	} else {
+		document.getElementById("birth_error_Id").innerHTML = "";
 	}
 
 	return isRight;
@@ -88,9 +96,14 @@ function regSubForm() {
 	if (name == '') {
 		document.getElementById("name_error_Id").innerHTML = "※入力が必須です";
 		isRight = false;
-	} else if (name.length < 3 || name.length > 32) {
-		document.getElementById("name_error_Id").innerHTML = "※3文字以上、32文字以内で入力してください";
+	} else if (name.length < 3) {
+		document.getElementById("name_error_Id").innerHTML = "※3文字以上で入力してください";
 		isRight = false;
+	} else if ( name.length > 32) {
+		document.getElementById("name_error_Id").innerHTML = "※32文字以内で入力してください";
+		isRight = false;
+	} else {
+		document.getElementById("name_error_Id").innerHTML = "";
 	}
 
 
@@ -98,9 +111,14 @@ function regSubForm() {
 	if (kana == '') {
 		document.getElementById("kana_error_Id").innerHTML = "※入力が必須です";
 		isRight = false;
-	} else if (kana.length < 3 || kana.length > 32) {
-		document.getElementById("kana_error_Id").innerHTML = "※3文字以上、32文字以内で入力してください";
+	} else if (kana.length < 3) {
+		document.getElementById("kana_error_Id").innerHTML = "※3文字以上で入力してください";
 		isRight = false;
+	} else if (kana.length > 32) {
+		document.getElementById("kana_error_Id").innerHTML = "※32文字以内で入力してください";
+		isRight = false;
+	} else {
+		document.getElementById("kana_error_Id").innerHTML = "";
 	}
 
 
@@ -111,6 +129,8 @@ function regSubForm() {
 	} else if (!email_pattern.test(email)) {
 		document.getElementById("email_error_Id").innerHTML = "※xxx@xxx.xxx の形式で入力してください";
 		isRight = false;
+	} else {
+		document.getElementById("email_error_Id").innerHTML = "";
 	}
 
 
@@ -121,6 +141,8 @@ function regSubForm() {
 	} else if (!tel_pattern.test(tel)) {
 		document.getElementById("tel_error_Id").innerHTML = "※「-（ハイフン）」 なしの9桁または10桁の数字で入力してください";
 		isRight = false;
+	} else {
+		document.getElementById("tel_error_Id").innerHTML = "";
 	}
 
 
@@ -136,6 +158,8 @@ function regSubForm() {
 	if (!flag) {
 		document.getElementById("gender_error_Id").innerHTML = "※入力が必須です";
 		isRight = false;
+	} else {
+		document.getElementById("gender_error_Id").innerHTML = "";
 	}
 
 
@@ -143,6 +167,8 @@ function regSubForm() {
 	if (birth == '') {
 		document.getElementById("birth_error_Id").innerHTML = "※入力が必須です";
 		isRight = false;
+	} else {
+		document.getElementById("birth_error_Id").innerHTML = "";
 	}
 
 
@@ -150,6 +176,8 @@ function regSubForm() {
 	if (company == '') {
 		document.getElementById("company_error_Id").innerHTML = "※入力が必須です";
 		isRight = false;
+	} else {
+		document.getElementById("company_error_Id").innerHTML = "";
 	}
 
 	

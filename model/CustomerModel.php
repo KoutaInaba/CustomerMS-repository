@@ -65,6 +65,7 @@ class CustomerModel extends Model
 			{$this->table}.company_id = {$this->table2}.id
 		WHERE
 			$data
+		ORDER BY created_at DESC
 		;";
 
 		$result = $this->dbCon->query($sql);
